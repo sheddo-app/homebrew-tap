@@ -9,14 +9,12 @@ cask "sheddo" do
 
   livecheck do
     url "https://releases.sheddo.app/appcast.xml"
-    strategy :sparkle do |item|
-      item.short_version
-    end
+    strategy :sparkle, &:short_version
   end
 
   auto_updates true
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Sheddo.app"
 
